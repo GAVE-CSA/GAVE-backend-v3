@@ -25,6 +25,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.vladmihalcea.hibernate.type.json.JsonType;
 
@@ -44,6 +45,7 @@ The last annotation connect to database
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@CrossOrigin(origins="http://127.0.0.1:4000/")
 @Convert(attributeName ="person", converter = JsonType.class)
 public class Person {
 

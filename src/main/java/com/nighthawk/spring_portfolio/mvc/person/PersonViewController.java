@@ -12,6 +12,7 @@ import java.util.List;
 // Built using article: https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 // or similar: https://asbnotebook.com/2020/04/11/spring-boot-thymeleaf-form-validation-example/
 @Controller
+@CrossOrigin(origins="http://127.0.0.1:4000/")
 @RequestMapping("/mvc/person")
 public class PersonViewController {
     // Autowired enables Control to connect HTML and POJO Object to database easily for CRUD

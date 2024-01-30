@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ This class has an instance of Java Persistence API (JPA)
 */
 @Service
 @Transactional
+@CrossOrigin(origins="http://127.0.0.1:4000/")
 public class PersonDetailsService implements UserDetailsService {  // "implements" ties ModelRepo to Spring Security
     // Encapsulate many object into a single Bean (Person, Roles, and Scrum)
     @Autowired  // Inject PersonJpaRepository
