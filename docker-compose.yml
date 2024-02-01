@@ -4,11 +4,7 @@ services:
     image: java_springv1
     build: .
     ports:
-<<<<<<< HEAD
       - 8013:8013"
-=======
-      - 8019:8019
->>>>>>> 2cc19322bb26254669a3e68fbab1032159c650c5
     volumes:
        - ./volumes:/volumes
     restart: unless-stopped
