@@ -17,7 +17,7 @@ public class Question {
     private String id;
 
     @Column(name = "severity")
-    private String severety;
+    private String severity;
 
     @Column(name = "title")
     private String title;
