@@ -1,16 +1,17 @@
-package com.nighthawk.spring_portfolio.mvc.questions;
+package com.nighthawk.spring_portfolio.mvc.cybernews;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
 
+// sets the template for data collected
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@NamedNativeQuery(name = "Question.findByCourse", query = "SELECT * FROM ?1", resultClass = Question.class)
-public class Question {
+@NamedNativeQuery(name = "Data.findByOpSys", query = "SELECT * FROM ?1", resultClass = Template.class)
+public class Template {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
