@@ -92,7 +92,7 @@ public class SecurityConfig {
 					.logoutSuccessUrl("/")
 				)
 				// make sure we use stateless session; 
-				// session won't be used to store user's state.
+				// session won't be used to store user's state. 
 				.exceptionHandling(exceptions -> exceptions
 					.authenticationEntryPoint(jwtAuthenticationEntryPoint)
 				)
