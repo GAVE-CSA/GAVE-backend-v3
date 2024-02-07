@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
 
-// sets the template for data collected
+// Sets the template for data collected
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,5 +44,4 @@ public class Template {
     @Column(name = "checktext")
     private String checktext;
 
-    // Getters and setters
 }
