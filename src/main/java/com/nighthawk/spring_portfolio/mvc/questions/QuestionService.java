@@ -21,7 +21,4 @@ public class QuestionService {
     public List<Question> getQuestionsByCourse(String courseName) {
         return customQuestionRepository.findByCourse(courseName);
     }
-
-
-    // Other business logic methods
 }
