@@ -22,6 +22,8 @@ import com.nighthawk.spring_portfolio.mvc.jwt.JwtAuthenticationEntryPoint;
 import com.nighthawk.spring_portfolio.mvc.jwt.JwtRequestFilter;
 import com.nighthawk.spring_portfolio.mvc.person.PersonDetailsService;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 
 /*
 * To enable HTTP Security in Spring
@@ -83,7 +85,7 @@ public class SecurityConfig {
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers", "Content-Type", "Authorization", "x-csrf-token"))
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-MaxAge", "600"))
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods", "POST", "GET", "OPTIONS", "HEAD"))
-					//.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100","https://e-shen2022.github.io", "http://127.0.0.1:4000", "https://gave-csa.github.io"))
+					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100","https://e-shen2022.github.io", "http://127.0.0.1:4000", "https://gave-csa.github.io", "https://gave.stu.nighthawkcodingsociety.com"))
 				)
 				.formLogin(form -> form 
 					.loginPage("/login")
