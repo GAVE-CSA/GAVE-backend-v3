@@ -58,7 +58,6 @@ public class PersonApiController {
         return new ResponseEntity<>(person, HttpStatus.OK);
     }
 
-
     /*
     GET individual Person using ID
      */

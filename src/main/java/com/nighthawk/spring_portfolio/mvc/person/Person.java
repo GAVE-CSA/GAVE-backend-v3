@@ -110,12 +110,12 @@ public class Person {
 
         // basics of class construction
         Person p1 = new Person();
-        p1.setName("Thomas Edison");
-        p1.setEmail("toby@gmail.com");
-        p1.setPassword("123Toby!");
+        p1.setName("Grace Wang");
+        p1.setEmail("gracewang@gmail.com");
+        p1.setPassword("123Grace!");
         // adding Note to notes collection
         try {  // All data that converts formats could fail
-            Date d = new SimpleDateFormat("MM-dd-yyyy").parse("01-01-1840");
+            Date d = new SimpleDateFormat("MM-dd-yyyy").parse("09-02-2005");
             p1.setDob(d);
         } catch (Exception e) {
             // no actions as dob default is good enough
