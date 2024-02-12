@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// endpoint aiscuhweoucheocuwheocuhweocuwehc
+// Endpoint 
 @RestController
 @RequestMapping("/api/vulnerability")
 public class Controller {
