@@ -92,6 +92,7 @@ public class SecurityConfig {
 				)
 				.logout(logout -> logout
 					.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+					.deleteCookies("jwt")
 					.logoutSuccessUrl("/")
 				)
 				// make sure we use stateless session; 
