@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio.mvc.chat;
+package com.nighthawk.spring_portfolio.mvc.gpt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
