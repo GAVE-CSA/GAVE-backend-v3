@@ -6,10 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-// link to the file that has the function to query
+// Spring Data JPA repository interface that provides  standard CRUD operations for Template entity 
+// Includes custom query method (findByOpSys) for fetching data 
 @Repository
 public interface Link extends JpaRepository<Template, Long> {
 
     @Query(nativeQuery = true, name = "Data.findByOpSys")
-    List<Template> findByOpSys(String OpSysName); //change to operating system
+    List<Template> findByOpSys(String OpSysName); 
 }

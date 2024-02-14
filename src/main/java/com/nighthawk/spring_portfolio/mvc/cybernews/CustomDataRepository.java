@@ -7,15 +7,17 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-// get data from database 
+// Get data from database using JPA 
 @Repository
 public class CustomDataRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
 
+    // Method to find data by operating system name using native SQL query.
     public List<Template> findByOpSys(String OpSysName) {
-        String sql = "SELECT * FROM " + OpSysName; // Ensure OpSysName is validated or mapped
+        // Build SQL query to select all columns from the table specified by OpSysName.
+        String sql = "SELECT * FROM " + OpSysName; 
         Query query = entityManager.createNativeQuery(sql, Template.class);
         return query.getResultList();
     }
