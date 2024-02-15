@@ -21,6 +21,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.persistence.Convert;
 import static jakarta.persistence.FetchType.EAGER;
 import jakarta.validation.constraints.Email;
@@ -49,7 +50,8 @@ The last annotation connect to database
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Table(name = "person")
+@Entity(name = "person")
 @CrossOrigin(origins="http://127.0.0.1:4000/")
 @Convert(attributeName ="person", converter = JsonType.class)
 public class Person {

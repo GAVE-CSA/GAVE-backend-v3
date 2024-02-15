@@ -23,7 +23,7 @@ public class Gamesession {
     private Long id;
 
     @Column 
-    private int userId;
+    private Long userId;
     private int gameId;
     private double startTime;
     private double endTime; 
@@ -31,7 +31,7 @@ public class Gamesession {
     @Column(unique=true)
     private int sessionId;
  
-    public Gamesession(int userId, int gameId, int sessionId, double startTime, double endTime) {
+    public Gamesession(long userId, int gameId, int sessionId, double startTime, double endTime) {
         this.userId = userId;
         this.gameId = gameId;
         this.sessionId = sessionId;
