@@ -83,7 +83,11 @@ public class SecurityConfig {
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Headers", "Content-Type", "Authorization", "x-csrf-token"))
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-MaxAge", "600"))
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Methods", "POST", "GET", "OPTIONS", "HEAD"))
+<<<<<<< HEAD
 					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100","https://e-shen2022.github.io", "http://127.0.0.1:4000", "https://gave-csa.github.io", "https://wsw.stu.nighthawkcodingsociety.com"))
+=======
+					.addHeaderWriter(new StaticHeadersWriter("Access-Control-Allow-Origin", "https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100"))
+>>>>>>> cdcb9d14d10f4883fcd6f6a1f3bf0d6668066381
 				)
 				.formLogin(form -> form 
 					.loginPage("/login")
