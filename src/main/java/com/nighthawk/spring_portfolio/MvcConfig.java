@@ -24,17 +24,8 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/volumes/uploads/**").addResourceLocations("file:volumes/uploads/");
     }
 
-<<<<<<< HEAD
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        //registry.addMapping("/**").allowedOrigins("https://gave-csa.github.io");
-        registry.addMapping("/**").allowedOrigins("https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100", "https://e-shen2022.github.io", "http://localhost:4000", "https://e-shen2022.github.io", "http://127.0.0.1:4000", "https://gave-csa.github.io", "https://wsw.stu.nighthawkcodingsociety.com");
-    }
-    /*
-=======
->>>>>>> cdcb9d14d10f4883fcd6f6a1f3bf0d6668066381
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100");
+        registry.addMapping("/**").allowedOrigins("https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100", "http://127.0.0.1:4000");
     }
 }
