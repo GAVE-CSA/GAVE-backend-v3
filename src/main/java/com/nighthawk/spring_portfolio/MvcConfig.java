@@ -28,6 +28,5 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         //registry.addMapping("/**").allowedOrigins("https://gave-csa.github.io");
         registry.addMapping("/**").allowedOrigins("https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100", "https://e-shen2022.github.io", "http://localhost:4000", "https://e-shen2022.github.io", "http://127.0.0.1:4000", "https://gave-csa.github.io", "https://gave.stu.nighthawkcodingsociety.com");
-        registry.addMapping("/**").allowedOrigins("https://vivianknee.github.io", "https://aliyatang.github.io", "http://localhost:5500", "http://127.0.0.1:4100", "http://127.0.0.1:4000");
     }
 }
