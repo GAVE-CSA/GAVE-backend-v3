@@ -28,19 +28,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
+ 
 @RestController
 @CrossOrigin(origins="http://127.0.0.1:4000/")
 @RequestMapping("/api/person")
 public class PersonApiController {
     //     @Autowired
     // private JwtTokenUtil jwtGen;
-    /*
-    #### RESTful API ####
-    Resource: https://spring.io/guides/gs/rest-service/
-    */
-
+   
     // Autowired enables Control to connect POJO Object through JPA
     @Autowired
     private PersonJpaRepository repository;
