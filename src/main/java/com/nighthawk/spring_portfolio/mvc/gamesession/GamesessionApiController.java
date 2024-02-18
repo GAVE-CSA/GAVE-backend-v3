@@ -9,17 +9,20 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nighthawk.spring_portfolio.mvc.person.Person;
 import com.nighthawk.spring_portfolio.mvc.person.PersonJpaRepository;
 
 import groovyjarjarantlr4.v4.runtime.misc.Tuple2; 
 
 @RestController // annotation to simplify the creation of RESTful web services
+@CrossOrigin(origins = {"http://127.0.0.1:5500", "http://127.0.0.1:4100"})
 @RequestMapping("/api/gamesession")  // all requests in file begin with this URI
 public class GamesessionApiController {
 
@@ -27,9 +30,23 @@ public class GamesessionApiController {
     private GamesessionJpaRepository repository;
     private PersonJpaRepository prepository;
     
+    //get entire leaderboard
+    @GetMapping("/")
+    public ResponseEntity<List<Gamesession>> getWholeLeaderboard() {
+        // ResponseEntity returns List of Jokes provide by JPA findAll()
+
+        return new ResponseEntity<>( repository.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Gamesession> createleaderboard(@RequestBody Gamesession gamesession) {
+            Gamesession savedLeaderboard = repository.save(gamesession);
+            return new ResponseEntity<>(savedLeaderboard, HttpStatus.CREATED);
+    }
+
     //get request for game time
     @GetMapping("/{gameId}")
-    public ResponseEntity<List<Tuple2<Long, Double>>> getLeaderboard(@PathVariable int gameId) {
+    public ResponseEntity<List<Tuple2<Long, Long>>> getLeaderboard(@PathVariable int gameId) {
         // final goal
         // 1. read all data from the Gamesession table
         // 2. filter only data with the game id
@@ -41,26 +58,26 @@ public class GamesessionApiController {
 
         // 4. calculate the shortest time for each group above
 
-        List<Tuple2<Long, Double>> result = new ArrayList<>();
+        List<Tuple2<Long, Long>> result = new ArrayList<>();
         for (Long userId : sessionsByUId.keySet()) {
             List<Gamesession> gList = sessionsByUId.get(userId); 
-            Double minSessionTime = Double.MAX_VALUE;
+            Long minSessionTime = Long.MAX_VALUE;
             
             //code to get name by id
             for (Gamesession gamesession : gList) {
-                Double duration = gamesession.getEndTime() - gamesession.getStartTime();
+                Long duration = gamesession.getEndTime() - gamesession.getStartTime();
                 if (duration < minSessionTime) {
                     minSessionTime = duration;
                     }
             }
-            Tuple2<Long, Double> tuple = new Tuple2<>(userId, minSessionTime);
+            Tuple2<Long, Long> tuple = new Tuple2<>(userId, minSessionTime);
             result.add(tuple);
         } 
         
         // sort users by time
         Comparator<Tuple2> sessionComparator = new Comparator<Tuple2>() {
             public int compare(Tuple2 t1, Tuple2 t2) {
-                return (int)((Double)t1.getItem2() - (Double)t2.getItem2());
+                return (int)((Long)t1.getItem2() - (Long)t2.getItem2());
             }
         };
         result.sort(sessionComparator);

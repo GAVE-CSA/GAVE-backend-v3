@@ -3,19 +3,16 @@ package com.nighthawk.spring_portfolio.mvc.gamesession;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.springframework.data.jpa.domain.Specification;
-
-import com.nighthawk.spring_portfolio.mvc.person.Person;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Join;
 
 @Data  // Annotations to simplify writing code (ie constructors, setters)
 @NoArgsConstructor
 //@AllArgsConstructor
 @Entity 
 @Convert(attributeName ="gamesession", converter = JsonType.class)
+
 public class Gamesession {
 
     @Id
@@ -25,13 +22,13 @@ public class Gamesession {
     @Column 
     private Long userId;
     private int gameId;
-    private double startTime;
-    private double endTime; 
+    private Long startTime;
+    private Long endTime; 
     
     @Column(unique=true)
     private int sessionId;
  
-    public Gamesession(long userId, int gameId, int sessionId, double startTime, double endTime) {
+    public Gamesession(long userId, int gameId, int sessionId, Long startTime, Long endTime) {
         this.userId = userId;
         this.gameId = gameId;
         this.sessionId = sessionId;
@@ -39,10 +36,10 @@ public class Gamesession {
         this.endTime = endTime;
     }
 
-    public static Specification<Person> hasUsernameWithId(int userId) {
-    return (root, query, criteriaBuilder) -> {
-        Join<Gamesession, Person> usernamesId = root.join("userId");
-        return criteriaBuilder.equal(usernamesId.get("userId"), userId);
-    };
-    }
+    // public static Specification<Person> hasUsernameWithId(int userId) {
+    // return (root, query, criteriaBuilder) -> {
+    //     Join<Gamesession, Person> usernamesId = root.join("userId");
+    //     return criteriaBuilder.equal(usernamesId.get("userId"), userId);
+    // };
+    //}
 }

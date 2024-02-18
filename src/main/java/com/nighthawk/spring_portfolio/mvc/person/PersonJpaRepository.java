@@ -4,11 +4,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+ 
 
-import jakarta.persistence.EntityManager;
-
-import java.util.List;
-import java.util.Set;
+import java.util.List; 
 
 /*
 Extends the JpaRepository interface from Spring Data JPA.
@@ -40,6 +38,6 @@ public interface PersonJpaRepository extends JpaRepository<Person, Long> {
       https://www.baeldung.com/spring-data-jpa-query
     */
 
-    @Query(value = "SELECT ps FROM person ps WHERE ps.id IN (:ids)")
-    List<Person> getNameList(@Param("ids") List<Long> ids);
+    // @Query(value = "SELECT ps FROM person ps WHERE ps.id IN (:ids)")
+    // List<Person> getNameList(@Param("ids") List<Long> ids);
 }
